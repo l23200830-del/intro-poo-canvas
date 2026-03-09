@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <title>Canvas Lab | Creative POO</title>
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --accent: #38bdf8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.15) 0px, transparent 50%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Tipografía estilo Lando Norris */
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            font-size: clamp(2rem, 8vw, 5rem);
+            line-height: 0.9;
+        }
+
+        .header-title {
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.4) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Contenedores estilo Studio */
+        .canvas-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .canvas-card:hover {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.02);
+        }
+
+        canvas {
+            border-radius: 12px;
+            width: 100% !important;
+            height: auto !important;
+            filter: saturate(1.2);
+            /* Sutil efecto de resplandor para los círculos */
+            box-shadow: 0 0 40px rgba(0,0,0,0.5); 
+        }
+
+        .badge-custom {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--accent);
+            border-left: 2px solid var(--accent);
+            padding-left: 10px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        footer {
+            opacity: 0.4;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Animación de entrada fluida */
+        .reveal {
+            animation: revealUp 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark py-4">
+        <div class="container justify-content-center">
+            <span class="navbar-brand m-0 p-0 fw-light small" style="letter-spacing: 5px;">LAB / 2026</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="row mb-5 reveal">
+            <div class="col-12 text-center">
+                <h1 class="header-title">CREATIVE<br>OBJECTS</h1>
+                <p class="text-uppercase small mt-3" style="letter-spacing: 4px; color: var(--accent);">OOP Canvas Architecture</p>
+            </div>
+        </div>
+
+        <div class="row g-5 justify-content-center reveal" style="animation-delay: 0.2s;">
+            
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="canvas-card h-100">
+                    <span class="badge-custom">01 / STATIC</span>
+                    <h4 class="mb-4 fw-bold">Pure Instance</h4>
+                    <canvas id="canvasOOP"></canvas>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="canvas-card h-100">
+                    <span class="badge-custom">02 / RANDOM</span>
+                    <h4 class="mb-4 fw-bold">Safe Bounds</h4>
+                    <canvas id="canvasRandom"></canvas>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="canvas-card h-100">
+                    <span class="badge-custom">03 / MULTI</span>
+                    <h4 class="mb-4 fw-bold">Dynamic Flow</h4>
+                    <canvas id="canvasMultiple"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center mt-5 py-5">
+        <p class="small text-uppercase">Antonio Duran Islas — Experimental Dev</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
